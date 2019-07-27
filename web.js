@@ -1,4 +1,5 @@
 const cluster = require('cluster');
+const path = require('path');
 const express = require('express');
 const app = express();
 
@@ -8,6 +9,9 @@ const doLog = (process.env.doLog==="true")?true:false;
 if (doLog) {
     console.log("Product web.js");
 }
+
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use('/',require('./routers/index'));
 app.use('/user',require('./routers/user'));

@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
     res.redirect(`/${mainPage}`);
 });
 router.get(encodeURI(`/${mainPage}`), (req, res, next) => {
-    res.send('test');
+    res.render('index')
 });
 
 module.exports = router;
