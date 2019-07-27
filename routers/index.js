@@ -1,8 +1,14 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const settings = require('../setting.json')
+const wikiName = settings.name;
+const mainPage = settings.main_page;
 
 router.get('/', (req, res, next) => {
-    res.send('Router Test Index');
+    res.redirect(`/${mainPage}`);
+});
+router.get(encodeURI(`/${mainPage}`), (req, res, next) => {
+    res.send('test');
 });
 
 module.exports = router;

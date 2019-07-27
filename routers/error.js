@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 router.use(function (req, res, next) {
-    var path = req.headers.host + req.url
+    const path = req.headers.host + req.url
     res.status(404).send(`Sorry cant find ${path}!`);
 });
 
